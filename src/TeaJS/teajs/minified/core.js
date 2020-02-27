@@ -1,4 +1,10 @@
-(function(window,undefined){var teajs=function(selector,context){let dc=document.querySelector(selector);if(dc){return{dc:dc,html:function(v){if(v===undefined)
-return this.dc.innerHTML;this.dc.innerHTML=v},val:function(v){if(v===undefined)
-return this.dc.value;this.dc.value=v}}}
-return undefined};window.teajs=window.$=teajs})(window)
+(function(window,undefined){var teajs=function(q,context){if(typeof q==="string"){return teajs(document.querySelectorAll(q))}else if(typeof q=="object"){if(q.constructor.name!=="NodeList"){q=[q]}
+return{q:q,dc:q[0],val:function(v){if(v===undefined)
+return this.dc.value;for(var i=0;i<q.length;i++)
+this.q[i].value=v},html:function(v){if(v===undefined)
+return this.dc.innerHTML;for(var i=0;i<q.length;i++)
+this.q[i].innerHTML=v},attr:function(n,v){if((n!==undefined)&&(v!==undefined))
+for(var i=0;i<q.length;i++)
+this.q[i].setAttribute(n,v);return this.dc.getAttribute(n)},disable:function(){for(var i=0;i<q.length;i++)
+this.q[i].setAttribute("disabled",1);},enable:function(){for(var i=0;i<q.length;i++)
+this.q[i].removeAttribute("disabled");}}}};window.teajs=window.$=teajs})(window)
