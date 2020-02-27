@@ -15,6 +15,11 @@ define("TEAJS_MINIFIED_DIR", TEAJS_SCRIPT_DIR."/minified");
 final class TeaJs
 {
     /**
+     * @const array
+     */
+    public const ALL_MODULES = ["core", "ajax"];
+
+    /**
      * @var bool
      */
     public $minify = false;
@@ -53,11 +58,15 @@ final class TeaJs
     }
 
     /**
-     * @param array $modules
+     * @param ?array $modules
      * @return void
      */
-    public function run(array $modules = []): void
+    public function run(?array $modules = null): void
     {
+        if (is_null($modules)) {
+            $modules = self::ALL_MODULES;
+        }
+
         if ($this->minify) {
             $this->renderMinified($modules);
             return;
