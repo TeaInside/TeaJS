@@ -32,6 +32,8 @@ final class TeaJs
      */
     public function renderMinified(array $modules): void
     {
+        require __DIR__."/../matthiasmullie/minify/src/Minify.php";
+        require __DIR__."/../matthiasmullie/minify/src/JS.php";
         is_dir(TEAJS_MINIFIED_DIR) or mkdir(TEAJS_MINIFIED_DIR);
 
         foreach ($modules as $k => $v) {
@@ -39,13 +41,10 @@ final class TeaJs
             $mini = TEAJS_MINIFIED_DIR."/".$v.".js";
             if (file_exists($ori)) {
                 if ((!file_exists($mini)) || (filemtime($ori) > filemtime($mini))) {
-                    $ori = str_replace(
-                        ["\n"],
-                        "",
-                        file_get_contents($ori)
-                    );
-                    file_put_contents($mini, $ori);
-                    echo $ori;
+
+                    $min = new \MatthiasMullie\Minify\JS($ori);
+                    echo $min->minify($mini);
+
                 } else {
                     echo file_get_contents($mini);
                 }

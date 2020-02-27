@@ -205,7 +205,7 @@ class JS extends Minify
             return $placeholder;
         };
         // multi-line comments
-        $this->registerPattern('/\n?\/\*(!|.*?@license|.*?@preserve).*?\*\/\n?/s', $callback);
+        // $this->registerPattern('/\n?\/\*(!|.*?@license|.*?@preserve).*?\*\/\n?/s', $callback);
         $this->registerPattern('/\/\*.*?\*\//s', '');
 
         // single-line comments
