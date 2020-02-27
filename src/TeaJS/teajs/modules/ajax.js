@@ -1,5 +1,5 @@
 
-  /**@teajs_module_start:ajax**/
+/**@teajs_module_start:ajax**/
   /**
    * TeaJS Asynchronous Javascript XMLHttpRequest.
    *
@@ -39,4 +39,4 @@
     }
     ch.send(data.data);
   };
-  /**@teajs_module_end:ajax**/
+/**@teajs_module_end:ajax**/
