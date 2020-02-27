@@ -43,10 +43,10 @@ final class TeaJs
                 if ((!file_exists($mini)) || (filemtime($ori) > filemtime($mini))) {
 
                     $min = new \MatthiasMullie\Minify\JS($ori);
-                    echo $min->minify($mini);
+                    echo $min->minify($mini).";";
 
                 } else {
-                    echo file_get_contents($mini);
+                    echo file_get_contents($mini).";";
                 }
             }
         }
