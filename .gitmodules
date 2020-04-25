@@ -1,0 +1,3 @@
+[submodule "src/path-converter"]
+	path = src/path-converter
+	url = https://github.com/matthiasmullie/path-converter
