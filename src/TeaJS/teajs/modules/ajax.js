@@ -28,7 +28,6 @@
       ch.withCredentials = true;
     }
 
-    ch.overrideMimeType('text/plain; charset=iso-8859-1');
     ch.open(data.method, data.url);
 
     ch.setRequestHeader("X-Requested-With", "XMLHttpRequest");
